@@ -27,7 +27,7 @@
 
         async function post() {
             const now = new Date().toLocaleDateString();
-            let x = await fetch("https://minidise.github.io/balls", {
+            let x = await fetch("https://minidise-github-io.onrender.com/balls", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify( {name: document.getElementById("namebox").value, msg: document.getElementById("msgbox").value, date: now} )
