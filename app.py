@@ -28,7 +28,7 @@ def balls():
             fieldnames = ["name", "msg", "date"]
             writer = csv.DictWriter(file, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
             writer.writerow(data)
-        return redirect("file:///C:/Users/minir/Desktop/sigma/sigma.html")
+        return redirect("https://minidise.github.io/")
 
 
 
