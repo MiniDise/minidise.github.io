@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <h1>Big, Gay!</h1>
+    <input name="msgbox" id="msgbox" placeholder="skibidi">
+    <input name="namebox" id="namebox" placeholder="toilet">
+    <button type="submit" onclick="post()">Submit</button>
+
+    <p>
+
+    </p>
+
+    <script>
+
+        async function getData() {
+            let resp = await fetch("http://127.0.0.1:5000/balls", { method: "GET" });
+            let object = await resp.json();
+            for (let key in object) {
+                let newElement = document.createElement("p");
+                let element = object[key]
+                newElement.textContent = element["msg"] + " // - " + element["name"] + " // " + element["date"];
+                document.body.appendChild(newElement);
+                console.log(element);
+                console.log(typeof element["msg"], element["msg"]);
+                console.log(typeof element["name"], element["name"]);
+                console.log(typeof element["date"], element["date"]);
+            }
+        }
+
+        getData();
+
+        async function post() {
+            const now = new Date().toLocaleDateString();
+            let x = await fetch("http://127.0.0.1:5000/balls", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify( {name: document.getElementById("namebox").value, msg: document.getElementById("msgbox").value, date: now} )
+            });
+            let y = await x.text()
+            alert(y)
+        }
+
+
+    </script>
+    
+</body>
+</html>
