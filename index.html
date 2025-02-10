@@ -13,7 +13,7 @@
     <script>
 
         async function getData() {
-            let resp = await fetch("http://127.0.0.1:5000/balls", { method: "GET" });
+            let resp = await fetch("https://minidise-github-io.onrender.com/balls", { method: "GET" });
             let object = await resp.json();
             for (let key in object) {
                 let newElement = document.createElement("p");
