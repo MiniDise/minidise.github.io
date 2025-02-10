@@ -20,10 +20,6 @@
                 let element = object[key]
                 newElement.textContent = element["msg"] + " // - " + element["name"] + " // " + element["date"];
                 document.body.appendChild(newElement);
-                console.log(element);
-                console.log(typeof element["msg"], element["msg"]);
-                console.log(typeof element["name"], element["name"]);
-                console.log(typeof element["date"], element["date"]);
             }
         }
 
@@ -31,7 +27,7 @@
 
         async function post() {
             const now = new Date().toLocaleDateString();
-            let x = await fetch("http://127.0.0.1:5000/balls", {
+            let x = await fetch("https://minidise.github.io/balls", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify( {name: document.getElementById("namebox").value, msg: document.getElementById("msgbox").value, date: now} )
