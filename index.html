@@ -28,7 +28,9 @@
                 body: JSON.stringify( {name: document.getElementById("namebox").value, msg: document.getElementById("msgbox").value, date: now} )
             });
             let y = await x.text()
-            alert(y)
+            if (y == "1") {
+                location.reload();
+            }
         }
 
 
